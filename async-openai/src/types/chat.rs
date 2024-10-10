@@ -4,6 +4,7 @@ use derive_builder::Builder;
 use futures::Stream;
 use serde::{Deserialize, Serialize};
 
+use super::{ChoiceResults, ContentFilteringResults};
 use crate::error::OpenAIError;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
@@ -664,6 +665,7 @@ pub struct ChatChoice {
     pub finish_reason: Option<FinishReason>,
     /// Log probability information for the choice.
     pub logprobs: Option<ChatChoiceLogprobs>,
+    pub content_filter_results: Option<ContentFilteringResults<ChoiceResults>>,
 }
 
 /// Represents a chat completion response returned by model, based on the provided input.
