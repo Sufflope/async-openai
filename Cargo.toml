@@ -1,0 +1,9 @@
+[package]
+name = "async-azure-openai"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+async-openai = { version = "0.25", path = "../../async-openai/async-openai" }
+serde = { version = "1", features = ["derive"] }
+url = { version = "2", features = ["serde"] }
