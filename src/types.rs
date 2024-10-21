@@ -1,6 +1,5 @@
-pub use async_openai::types::*;
-
-pub(crate) mod chat;
+mod chat;
 mod content_filtering;
 
+pub use chat::*;
 pub use content_filtering::*;
