@@ -56,3 +56,7 @@ impl From<UninitializedFieldError> for OpenAIError {
         OpenAIError::InvalidArgument(value.to_string())
     }
 }
+
+pub trait Streamable {
+    fn stream(&self) -> bool;
+}

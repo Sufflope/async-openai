@@ -1,8 +1,12 @@
+use async_openai_macros::extensible;
+use serde::Serialize;
+
 use crate::{
     config::Config,
     error::OpenAIError,
     types::{
         ChatCompletionResponseStream, CreateChatCompletionRequest, CreateChatCompletionResponse,
+        Streamable,
     },
     Client,
 };
@@ -20,11 +24,12 @@ impl<'c, C: Config> Chat<'c, C> {
     }
 
     /// Creates a model response for the given chat conversation.
+    #[extensible]
     pub async fn create(
         &self,
-        request: CreateChatCompletionRequest,
+        #[request(bounds = Serialize + Streamable)] request: CreateChatCompletionRequest,
     ) -> Result<CreateChatCompletionResponse, OpenAIError> {
-        if request.stream.is_some() && request.stream.unwrap() {
+        if request.stream() {
             return Err(OpenAIError::InvalidArgument(
                 "When stream is true, use Chat::create_stream".into(),
             ));

@@ -5,6 +5,7 @@ use futures::Stream;
 use serde::{Deserialize, Serialize};
 
 use crate::error::OpenAIError;
+use crate::types::Streamable;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 #[serde(untagged)]
@@ -604,6 +605,12 @@ pub struct CreateChatCompletionRequest {
     #[deprecated]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub functions: Option<Vec<ChatCompletionFunctions>>,
+}
+
+impl Streamable for CreateChatCompletionRequest {
+    fn stream(&self) -> bool {
+        self.stream == Some(true)
+    }
 }
 
 /// Options for streaming response. Only set this when you set `stream: true`.
