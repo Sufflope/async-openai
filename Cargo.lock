@@ -38,7 +38,8 @@ dependencies = [
 
 [[package]]
 name = "async-openai"
-version = "0.25.0"
+version = "0.26.0"
+source = "git+https://github.com/Sufflope/async-openai?branch=280_make_api_extensible#d0cad8114f43cdcef0c5dc66d944361cc12c88ef"
 dependencies = [
  "async-convert",
  "async-openai-macros",
@@ -64,6 +65,7 @@ dependencies = [
 [[package]]
 name = "async-openai-macros"
 version = "0.1.0"
+source = "git+https://github.com/Sufflope/async-openai?branch=280_make_api_extensible#d0cad8114f43cdcef0c5dc66d944361cc12c88ef"
 dependencies = [
  "darling",
  "itertools",

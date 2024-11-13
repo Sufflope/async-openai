@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-async-openai = { version = "0.25", path = "../../async-openai/async-openai" }
+async-openai = { version = "0.26", git = "https://github.com/Sufflope/async-openai", branch = "280_make_api_extensible" }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 url = { version = "2", features = ["serde"] }
