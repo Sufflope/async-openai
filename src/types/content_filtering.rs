@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 use url::Url;
+#[cfg(feature = "utoipa")]
+use utoipa::ToSchema;
 
 pub type ContentFilterResults = ContentFilteringResults<ChoiceResults>;
 
@@ -66,6 +68,7 @@ pub struct SeverityResult {
     pub severity: Option<Severity>,
 }
 
+#[cfg_attr(feature = "utoipa", derive(ToSchema))]
 #[derive(Clone, Debug, Deserialize, Eq, Ord, PartialEq, PartialOrd, Serialize)]
 #[serde(rename_all = "lowercase")]
 pub enum Severity {

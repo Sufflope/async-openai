@@ -8,3 +8,4 @@ async-openai = { version = "0.26", git = "https://github.com/Sufflope/async-open
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 url = { version = "2", features = ["serde"] }
+utoipa = { version = "4", optional = true }
