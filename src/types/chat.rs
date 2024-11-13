@@ -23,13 +23,11 @@ impl<'de> Deserialize<'de> for CreateChatCompletionResponse {
     {
         let base: serde_json::Value = serde_json::Value::deserialize(deserializer)?;
 
-        let vanilla: async_openai::types::CreateChatCompletionResponse = serde_json::from_value(base.clone()).unwrap();
+        let vanilla: async_openai::types::CreateChatCompletionResponse =
+            serde_json::from_value(base.clone()).unwrap();
         let extra: Extra = serde_json::from_value(base).unwrap();
 
-        Ok(CreateChatCompletionResponse{
-            vanilla,
-            extra
-        })
+        Ok(CreateChatCompletionResponse { vanilla, extra })
     }
 }
 

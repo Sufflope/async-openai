@@ -66,7 +66,7 @@ pub struct SeverityResult {
     pub severity: Option<Severity>,
 }
 
-#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, Ord, PartialEq, PartialOrd, Serialize)]
 #[serde(rename_all = "lowercase")]
 pub enum Severity {
     Safe,
